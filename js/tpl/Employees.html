@@ -1,0 +1,10 @@
+<ul class="topcoat-list list" data-bind="foreach: employees($parent.searchKind, $parent.searchKey)">
+    <li class="topcoat-list__item">
+        <a href="#Employee">
+            <img data-bind="attr: { src: 'pics/' + firstName + '_' + lastName + '.jpg' }" />
+            <p data-bind="text: firstName + ' ' + lastName"></p>
+            <p data-bind="text: title"></p>
+            <span class="chevron"></span><span class="count" data-bind="text: reports"></span>
+        </a>
+    </li>
+</ul>

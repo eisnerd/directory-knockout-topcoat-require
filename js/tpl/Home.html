@@ -1,9 +1,9 @@
 <div class="topcoat-navigation-bar">
     <div class="topcoat-navigation-bar__item center full">
-        <h1 class="topcoat-navigation-bar__title">Employee Directory</h1>
+        <h1 class="topcoat-navigation-bar__title" data-bind="text: ko.unwrap(searchList).replace(/s?$/, ' Directory')"></h1>
     </div>
 </div>
 <div class="search-bar">
-    <input type="search" placeholder="search" class="topcoat-search-input search-key" style="width:100%;">
+    <input type="search" placeholder="search" class="topcoat-search-input" style="width:100%;" data-bind="value: searchKey, valueUpdate: 'afterkeydown'">
 </div>
-<div class="topcoat-list__container scroller" style="top:138px;"></div>
+<div class="topcoat-list__container scroller" style="top:138px;" data-bind="module: searchList"></div>

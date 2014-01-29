@@ -3,13 +3,14 @@ require.config({
     baseUrl: 'js/lib',
 
     paths: {
+        knockout: 'knockout-3.0.0.debug',
         app: '../app',
         tpl: '../tpl'
     },
 
     map: {
         '*': {
-            'app/models/employee': 'app/models/memory/employee'
+            'app/store/Employee': 'app/store/memory/Employee'
         }
     },
 
@@ -24,14 +25,14 @@ require.config({
     }
 });
 
-require(['jquery', 'backbone', 'app/router'], function ($, Backbone, Router) {
+require(['app/utils/knockout', 'app/utils/navigate'], function (ko, navigate) {
 
-    var router = new Router();
+    ko.bindingHandlers.module.baseDir = "app/views";
+    ko.amdTemplateEngine.defaultPath = "tpl";
+    ko.amdTemplateEngine.defaultSuffix = ".html";
 
-    $("body").on("click", ".back-button", function (event) {
-        event.preventDefault();
-        window.history.back();
-    });
+    setTimeout(function() {
+        navigate.to("Home");
+    }, 0);
 
-    Backbone.history.start();
 });
