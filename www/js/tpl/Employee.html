@@ -19,10 +19,10 @@
         <ul class="topcoat-list list actions">
             <li class="topcoat-list__item" data-bind="showIf: managerId"><a href="#Employee" data-context="manager()"><p>View Manager</p><p data-bind="text: managerName"></p><div class="action-icon icon-manager"/></a></li>
             <li class="topcoat-list__item" data-bind="showIf: reports > 0"><a href="#Reports"><p>View Direct Reports</p><p data-bind="text: reports"></p><div class="action-icon icon-reports"/></a></li>
-            <!--li class="topcoat-list__item"><a href="tel:<%= officePhone %>"><p>Call Office</p><p><%= officePhone %></p><div class="action-icon icon-call"></div></a></li>
-            <li class="topcoat-list__item"><a href="tel:<%= cellPhone %>"><p>Call Cell</p><p><%= cellPhone %></p><div class="action-icon icon-call"></div></a></li>
-            <li class="topcoat-list__item"><a href="sms:<%= cellPhone %>"><p>SMS</p><p><%= cellPhone %></p><div class="action-icon icon-sms"></div></a></li>
-            <li class="topcoat-list__item"><a href="mailto:<%= email %>"><p>Email</p><p><%= email %></p><div class="action-icon icon-mail"></div></a></li-->
+            <li class="topcoat-list__item"><a data-bind="attr: { href: 'tel:' + officePhone }"><p>Call Office</p><p data-bind="text: officePhone"></p><div class="action-icon icon-call"></div></a></li>
+            <li class="topcoat-list__item"><a data-bind="attr: { href: 'tel:' + cellPhone }"><p>Call Cell</p><p data-bind="text: cellPhone"></p><div class="action-icon icon-call"></div></a></li>
+            <li class="topcoat-list__item"><a data-bind="attr: { href: 'sms:' + cellPhone }"><p>SMS</p><p data-bind="text: cellPhone"></p><div class="action-icon icon-sms"></div></a></li>
+            <li class="topcoat-list__item"><a data-bind="attr: { href: 'mailto:' + email }"><p>Email</p><p data-bind="text: email"></p><div class="action-icon icon-mail"></div></a></li>
         </ul>
     </div>
 </div>
