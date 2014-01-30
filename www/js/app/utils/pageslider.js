@@ -54,10 +54,13 @@ define(function (require) {
 
             // Position the page at the starting position of the animation
             page.attr("class", "page " + from);
+            page.removeClass("finished");
 
             currentPage.one('webkitTransitionEnd', function (e) {
                 if (from == "page-left")
                     $(e.target).remove();
+                else
+                    $(e.target).addClass("finished");
             });
 
             // Force reflow. More information here: http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/
