@@ -31,15 +31,17 @@ require(['app/utils/knockout', 'app/utils/navigate'], function (ko, navigate) {
     ko.amdTemplateEngine.defaultPath = "tpl";
     ko.amdTemplateEngine.defaultSuffix = ".html";
 
+    function onbackbutton(e) {
+        if (navigate.back())
+            e.preventDefault();
+    }
+
+    function ondeviceready() {
+        document.addEventListener("backbutton", onbackbutton, false);
+    }
+
     setTimeout(function() {
-        document.addEventListener("deviceready", function() {
-            window.alert("ready");
-            document.addEventListener("backbutton", function(e) {
-                window.alert("back");
-                if (navigate.back())
-                    e.preventDefault();
-            }, false);
-        }, false);
+        document.addEventListener("deviceready", ondeviceready, false);
 
         navigate.to("Home");
     }, 0);
