@@ -1,0 +1,39 @@
+#!/bin/sh
+
+(
+cd "$(dirname "$(readlink -f "$0")")"
+
+# from
+#  find -type d|grep -vE '^\./(www|\.git)'
+xargs -d\\n mkdir -p <<EOF
+./.cordova
+./.cordova/hooks
+./.cordova/hooks/after_build
+./.cordova/hooks/after_compile
+./.cordova/hooks/after_docs
+./.cordova/hooks/after_emulate
+./.cordova/hooks/after_platform_add
+./.cordova/hooks/after_platform_ls
+./.cordova/hooks/after_platform_rm
+./.cordova/hooks/after_plugin_add
+./.cordova/hooks/after_plugin_ls
+./.cordova/hooks/after_plugin_rm
+./.cordova/hooks/after_prepare
+./.cordova/hooks/after_run
+./.cordova/hooks/before_build
+./.cordova/hooks/before_compile
+./.cordova/hooks/before_docs
+./.cordova/hooks/before_emulate
+./.cordova/hooks/before_platform_add
+./.cordova/hooks/before_platform_ls
+./.cordova/hooks/before_platform_rm
+./.cordova/hooks/before_plugin_add
+./.cordova/hooks/before_plugin_ls
+./.cordova/hooks/before_plugin_rm
+./.cordova/hooks/before_prepare
+./.cordova/hooks/before_run
+./merges
+./platforms
+./plugins
+EOF
+)
