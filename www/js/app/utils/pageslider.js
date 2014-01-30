@@ -11,7 +11,12 @@ define(function (require) {
             stateHistory = [];
 
         self.back = function () {
-            self.slidePage($("[data-PageSlider='" + stateHistory[stateHistory.length - 2] + "']"));
+            var
+                prev = stateHistory.length - 2,
+                ret = prev >= 0;
+            if (ret)
+                self.slidePage($("[data-PageSlider='" + stateHistory[prev] + "']"));
+            return ret;
         };
 
         // Use this function if you want PageSlider to automatically determine the sliding direction based on the state history

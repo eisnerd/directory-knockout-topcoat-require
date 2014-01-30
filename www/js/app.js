@@ -32,6 +32,15 @@ require(['app/utils/knockout', 'app/utils/navigate'], function (ko, navigate) {
     ko.amdTemplateEngine.defaultSuffix = ".html";
 
     setTimeout(function() {
+        document.addEventListener("deviceready", function() {
+            window.alert("ready");
+            document.addEventListener("backbutton", function(e) {
+                window.alert("back");
+                if (navigate.back())
+                    e.preventDefault();
+            }, false);
+        }, false);
+
         navigate.to("Home");
     }, 0);
 
